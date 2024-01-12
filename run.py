@@ -33,11 +33,11 @@ def get_current_time(start_time_am, end_time_am, start_time_pm, end_time_pm):
 
 while True:
     try:
-        notebook_path = 'd:\\t2m_invest\\t2m_python.ipynb'
+        notebook_path = 'd:\\t2m_invest\\py_code\\t2m_python.ipynb'
         run_notebook(notebook_path)
 
         current_time = get_current_time(dt.time(9, 00), dt.time(11, 30), dt.time(13, 00), dt.time(15, 00))
-        date_series = pd.read_csv('input_data/ami_data/VNINDEX.csv').iloc[-1]
+        date_series = pd.read_csv('../ami_data/VNINDEX.csv').iloc[-1]
         date_series['date'] = pd.to_datetime(date_series['date'].astype(str), format='%y%m%d')
         print(f"Cập nhật: {datetime.combine(date_series['date'].date(), current_time).strftime('%d/%m/%Y %H:%M:%S')}")
 
